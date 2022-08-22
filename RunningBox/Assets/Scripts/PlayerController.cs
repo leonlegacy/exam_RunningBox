@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
@@ -8,7 +6,6 @@ public class PlayerController : MonoBehaviour
     private float speed = 10;
 
     [SerializeField]
-    //CharacterController controller;
     Rigidbody rigi;
 
     [SerializeField]
@@ -22,9 +19,7 @@ public class PlayerController : MonoBehaviour
 
         Vector3 direction = new Vector3(x, 0f, z);
         
-        //controller.Move(new Vector3(x, 0f, z) * speed);
-        //rigi.MovePosition
-        rigi.velocity = new Vector3(x, rigi.velocity.y, z) * speed;
+        rigi.velocity = new Vector3(x * speed, rigi.velocity.y, z * speed);
 
         if (direction != Vector3.zero)
             transform.forward = direction;
